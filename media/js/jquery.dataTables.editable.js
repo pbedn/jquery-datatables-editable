@@ -297,7 +297,11 @@
                         values[rel] = sCellValue;
                     }
                 });
-
+                // modification
+                var index = values.indexOf('id');
+                if (index !== -1) {
+                    values[index] = Number(data);
+                }
                 //Add values from the form into the table
                 var rtn = oTable.fnAddData(values);
                 var oTRAdded = oTable.fnGetNodes(rtn);
@@ -652,7 +656,8 @@
             }
 
             //Add handler to the inline delete buttons
-            $(".table-action-deletelink", oTable).live("click", function (e) {
+            // $(".table-action-deletelink", oTable).live("click", function (e) {   // depreceated
+            $(oTable).on("click", ".table-action-deletelink", function (e) {        // modification
 
                     e.preventDefault();
                     e.stopPropagation();
