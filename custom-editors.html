@@ -14,7 +14,7 @@
 			@import "media/css/themes/smoothness/jquery-ui-1.7.2.custom.css";
 		</style>
 
-        <script src="media/js/jquery.min.js" type="text/javascript"></script>
+        <script src="media/js/jquery-1.4.4.min.js" type="text/javascript"></script>
         <script src="media/js/jquery.dataTables.min.js" type="text/javascript"></script>
         <script src="media/js/jquery.jeditable.js" type="text/javascript"></script>
         <script src="media/js/jquery-ui.js" type="text/javascript"></script>
@@ -33,13 +33,12 @@
                     									{
                     									},
                     									{
-                									        event: 'mouseover',
-															indicator: 'Saving platforms...',
+                									        indicator: 'Saving platforms...',
                                                             					tooltip: 'Click to edit platforms',
 												type: 'textarea',
                                                  						submit:'Save changes',
-												fnOnCellUpdated: function(sStatus, sValue, row, column, settings){
-													alert("(Cell Callback): Cell["+row+","+column+"] is updated with value " + sValue);
+												fnOnCellUpdated: function(sStatus, sValue, settings){
+													alert("(Cell Callback): Cell is updated with value " + sValue);
 												}
                     									},
                     									{
@@ -53,7 +52,6 @@
 												sUpdateURL: "CustomUpdateEngineVersion.php"
                     									},
                     									{
-															event: 'click',
                                                             					indicator: 'Saving CSS Grade...',
                                                             					tooltip: 'Click to select CSS Grade',
                                                             					loadtext: 'loading...',

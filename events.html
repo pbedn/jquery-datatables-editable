@@ -1,4 +1,4 @@
- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
 
 	
@@ -13,7 +13,7 @@
 			@import "media/css/themes/smoothness/jquery-ui-1.7.2.custom.css";
 		</style>
 
-        <script src="media/js/jquery.min.js" type="text/javascript"></script>
+        <script src="media/js/jquery-1.4.4.min.js" type="text/javascript"></script>
         <script src="media/js/jquery.dataTables.min.js" type="text/javascript"></script>
         <script src="media/js/jquery.jeditable.js" type="text/javascript"></script>
         <script src="media/js/jquery-ui.js" type="text/javascript"></script>
@@ -45,12 +45,12 @@
 											{ 	
 												$("#trace").append("<br/>Add action finished. Status - " + status);
 											},
-            							fnOnEditing: function(jInput, oEditableSettings, sOriginalText, id)
-                                 {     
-                                       $("#trace").append("<br/>Updating cell (id="+ id + ") with original value " + sOriginalText + " to value " + jInput.val() + ". Sending request to " + oEditableSettings.target);
-                                       return true;
-                                 },
-            							fnOnEdited: function(status)
+            								fnOnEditing: function(input)
+											{ 	
+												$("#trace").append("<br/>Updating cell with value " + input.val());
+												return true;
+											},
+            								fnOnEdited: function(status)
 											{ 	
 												$("#trace").append("<br/>Edit action finished. Status - " + status);
 											},
@@ -78,8 +78,6 @@
 
 <body id="dt_example">
 		<div id="container">
-			<a href="index.html">Home</a>
-			<a href="http://code.google.com/p/jquery-datatables-editable/wiki/EditorSettings">Wiki</a> 
 			<div class="full_width big">
 
 				Editable DataTable example - Attaching event handlers
